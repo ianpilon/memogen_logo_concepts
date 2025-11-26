@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memogen | Brand Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --memogen-navy: #354656;
+            --memogen-dark: #2C3E50;
+            --memogen-light: #F7F7F7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            page-break-after: always;
+            scroll-snap-align: start;
+            cursor: pointer;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--memogen-navy) 0%, var(--memogen-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 1000;
+        }
+
+        .nav-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--memogen-navy);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        .memogen-navy {
+            color: var(--memogen-navy);
+        }
+
+        .bg-memogen-navy {
+            background-color: var(--memogen-navy);
+        }
+
+        .bg-memogen-dark {
+            background-color: var(--memogen-dark);
+        }
+
+        .border-memogen-navy {
+            border-color: var(--memogen-navy);
+        }
+
+        .logo-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .concept-image {
+            max-width: 80%;
+            max-height: 70vh;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 12px;
+        }
+
+        .slide-with-footer-text {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .footer-text {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+            }
+            .slide-counter, .nav-hint, .progress-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / 10</div>
+
+    <!-- Navigation Hint -->
+    <div class="nav-hint">Click or press arrow keys to navigate</div>
+
+    <!-- Slide 1: Title / Brand Introduction -->
+    <div class="slide" style="background: linear-gradient(135deg, #0a152b 0%, #3c4556 100%);">
+        <div class="text-center px-12 max-w-5xl w-full">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                Brand Identity Showcase
+            </h1>
+            <p class="text-xl text-gray-300 mb-2">
+                November 26, 2025
+            </p>
+            <p class="text-lg text-gray-400">
+                by Ian Pilon
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Logo - Light Background -->
+    <div class="slide bg-white">
+        <div class="max-w-5xl px-12 w-full text-center slide-with-footer-text">
+            <div class="logo-container">
+                <img src="images/logo-navy.png" alt="memogen logo on white" class="mx-auto">
+            </div>
+            <div class="footer-text">
+                <h2 class="text-3xl font-bold memogen-navy mb-4">
+                    Primary Logo
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Clean, professional identity on light backgrounds
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Logo - Dark Background -->
+    <div class="slide" style="background: linear-gradient(135deg, #0a152b 0%, #3c4556 100%);">
+        <div class="max-w-5xl px-12 w-full text-center slide-with-footer-text">
+            <div class="logo-container">
+                <img src="images/gb17B1.png" alt="memogen logo on dark" class="mx-auto">
+            </div>
+            <div class="footer-text">
+                <h2 class="text-3xl font-bold text-white mb-4">
+                    Logo on Dark
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Versatile design for dark backgrounds
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Brand Application - Signage -->
+    <div class="slide bg-gray-50">
+        <div class="max-w-6xl px-12 w-full slide-with-footer-text">
+            <div class="flex justify-center">
+                <img src="images/signage-mockup.jpg" alt="memogen signage" class="concept-image shadow-2xl">
+            </div>
+            <h2 class="text-4xl font-bold memogen-navy text-center footer-text">
+                Real-World Application
+            </h2>
+        </div>
+    </div>
+
+    <!-- Slide 5: Messaging - Protect Your Commission -->
+    <div class="slide">
+        <div class="max-w-5xl px-12 w-full slide-with-footer-text">
+            <div class="flex justify-center">
+                <img src="images/commission-mockup.jpg" alt="Protect Your Commission" class="concept-image">
+            </div>
+            <div class="text-center footer-text">
+                <p class="text-2xl font-bold memogen-navy">
+                    Protect Your Commission. Close Deals Faster.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Messaging - Reduce Defaults -->
+    <div class="slide bg-gray-50">
+        <div class="max-w-5xl px-12 w-full slide-with-footer-text">
+            <div class="flex justify-center">
+                <img src="images/defaults-mockup.jpg" alt="Reduce Defaults" class="concept-image">
+            </div>
+            <div class="text-center footer-text">
+                <p class="text-2xl font-bold memogen-navy">
+                    Reduce Defaults. Underwrite Smarter.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Logo Variations -->
+    <div class="slide">
+        <div class="max-w-5xl px-12 w-full text-center slide-with-footer-text">
+            <div class="flex justify-center">
+                <img src="images/all4.png" alt="Logo Variations" class="mx-auto" style="max-width: 90%;">
+            </div>
+            <h2 class="text-4xl font-bold memogen-navy footer-text">
+                Logo Variations
+            </h2>
+        </div>
+    </div>
+
+    <!-- Slide 8: Icon & Wordmark -->
+    <div class="slide bg-gray-50">
+        <div class="max-w-5xl px-12 w-full slide-with-footer-text">
+            <div class="grid grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <img src="images/elephant_icon.png" alt="Elephant icon" class="mx-auto" style="max-width: 200px;">
+                    <p class="mt-6 text-xl text-gray-600">Elephant Icon</p>
+                </div>
+                <div class="text-center">
+                    <img src="images/wordmark1.png" alt="memogen wordmark" class="mx-auto" style="max-width: 400px;">
+                    <p class="mt-6 text-xl text-gray-600">Wordmark</p>
+                </div>
+            </div>
+            <h2 class="text-4xl font-bold memogen-navy text-center footer-text">
+                Icon & Wordmark
+            </h2>
+        </div>
+    </div>
+
+    <!-- Slide 9: Elephant Metaphor -->
+    <div class="slide bg-gray-50">
+        <div class="max-w-5xl px-12 w-full slide-with-footer-text">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex justify-center mb-12">
+                    <img src="images/elephant_icon.png" alt="Elephant" style="max-width: 150px;">
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-lg">
+                    <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                        Business transition planning is much like the leadership handover within an elephant herd. The matriarch doesn't simply step aside — she transfers her routes, her relationships, and her hard-earned instincts long before the next leader takes her place.
+                    </p>
+                    <p class="text-xl text-gray-700 leading-relaxed">
+                        In the same way, effective ownership and operational transition depends on capturing the organization's memory: the systems, the logic behind key decisions, the trusted relationships, and the unwritten rules that keep the business moving forward. A successful handoff isn't a moment — it's a deliberate, steady passing of wisdom that ensures the herd, or the business, continues confidently on its path.
+                    </p>
+                </div>
+            </div>
+            <h2 class="text-4xl font-bold memogen-navy footer-text">
+                Why the Elephant?
+            </h2>
+        </div>
+    </div>
+
+    <!-- Slide 10: Color Palette -->
+    <div class="slide">
+        <div class="max-w-5xl px-12 w-full slide-with-footer-text">
+            <div class="grid grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="w-full h-48 rounded-2xl shadow-lg mb-4" style="background-color: var(--memogen-navy);"></div>
+                    <p class="font-bold text-gray-900">Primary Navy</p>
+                    <p class="text-gray-600 font-mono text-sm">#354656</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-full h-48 rounded-2xl shadow-lg mb-4" style="background-color: var(--memogen-dark);"></div>
+                    <p class="font-bold text-gray-900">Dark Navy</p>
+                    <p class="text-gray-600 font-mono text-sm">#2C3E50</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-full h-48 rounded-2xl shadow-lg mb-4 border-2 border-gray-200" style="background-color: #FFFFFF;"></div>
+                    <p class="font-bold text-gray-900">White</p>
+                    <p class="text-gray-600 font-mono text-sm">#FFFFFF</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-full h-48 rounded-2xl shadow-lg mb-4" style="background: linear-gradient(135deg, #0a152b 0%, #3c4556 100%);"></div>
+                    <p class="font-bold text-gray-900">Brand Gradient</p>
+                    <p class="text-gray-600 font-mono text-sm">#0A152B → #3C4556</p>
+                </div>
+            </div>
+            <h2 class="text-4xl font-bold memogen-navy text-center footer-text">
+                Brand Colors
+            </h2>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const totalSlides = 10;
+        let currentSlide = 1;
+
+        // Get all slides and add IDs
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach((slide, index) => {
+            slide.id = `slide-${index + 1}`;
+            slide.dataset.slide = index + 1;
+        });
+
+        // Update slide counter and progress bar
+        function updateUI() {
+            document.getElementById('slideCounter').textContent = `${currentSlide} / ${totalSlides}`;
+            document.getElementById('progressBar').style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        // Navigate to specific slide
+        function goToSlide(slideNum) {
+            if (slideNum < 1) slideNum = 1;
+            if (slideNum > totalSlides) slideNum = totalSlides;
+
+            currentSlide = slideNum;
+            const targetSlide = document.getElementById(`slide-${slideNum}`);
+            if (targetSlide) {
+                targetSlide.scrollIntoView({ behavior: 'smooth' });
+                updateUI();
+            }
+        }
+
+        // Next slide
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+
+        // Previous slide
+        function prevSlide() {
+            if (currentSlide > 1) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        // Click handler
+        document.addEventListener('click', function(e) {
+            const clickX = e.clientX;
+            const screenWidth = window.innerWidth;
+
+            if (clickX < screenWidth * 0.2) {
+                prevSlide();
+            } else {
+                nextSlide();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case ' ':
+                case 'Enter':
+                case 'PageDown':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                case 'PageUp':
+                case 'Backspace':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    goToSlide(1);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    goToSlide(totalSlides);
+                    break;
+            }
+        });
+
+        // Track scroll position
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                let maxVisibility = 0;
+                let visibleSlide = 1;
+
+                slides.forEach((slide, index) => {
+                    const rect = slide.getBoundingClientRect();
+                    const visibility = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+
+                    if (visibility > maxVisibility) {
+                        maxVisibility = visibility;
+                        visibleSlide = index + 1;
+                    }
+                });
+
+                if (visibleSlide !== currentSlide) {
+                    currentSlide = visibleSlide;
+                    updateUI();
+                }
+            }, 100);
+        });
+
+        // Initialize
+        updateUI();
+    </script>
+</body>
+</html>
